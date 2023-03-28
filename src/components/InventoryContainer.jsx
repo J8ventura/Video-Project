@@ -6,7 +6,7 @@ export default function InventoryContainer({inventory}) {
         <h2>Inventory</h2>
         <div className = "inventory-list"> 
             {inventory.map((movie, index) => <InventoryItem key={index} movie={movie} />)}
-        <InventoryItem />
+            <InventoryItem />
         </div>
         </div>
         
