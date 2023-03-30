@@ -1,18 +1,16 @@
 
 
-export default function InventoryItem({movie}){
-    const { title, imgUrl, copiesAvailable } = movie;
-    console.log(title, imgUrl, copiesAvailable);
+export default function InventoryItem({movie, setSelectedTitleById}){
+    const { id, title, imgUrl, copiesAvailable } = movie;
+    console.log(id, title, imgUrl, copiesAvailable, setSelectedTitleById);
 
         return (
             <div className="inventory-item">
-            <h2>{title}</h2>
-            <img src={imgUrl} />
-            <pre>Copies Available: {copiesAvailable}</pre>
-            <button 
-                disabled={copiesAvailable ==0} 
-                onClick={() => alert(`you checked out ${title}`)}
-                >Check out</button>
+                <h2>{title}</h2>
+                <img src={imgUrl} onClick={() => setSelectedTitleById(id)} />
+                <div className="item-action">
+                    <pre>Copies Available: {copiesAvailable.current}</pre>
+                </div>
             </div>
         );
 }
